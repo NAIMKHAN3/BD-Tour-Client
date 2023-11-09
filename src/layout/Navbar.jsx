@@ -5,6 +5,7 @@ import Image from "../components/Image";
 import Paragraph from "../components/Paragraph";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
+import MobileNavbar from "../components/MobileNavbar";
 
 
 const Navbar = () => {
@@ -61,6 +62,7 @@ const email = null
                     </div>
                 </div>
             </div>
+            <MobileNavbar/>
         </div>
     );
 };
