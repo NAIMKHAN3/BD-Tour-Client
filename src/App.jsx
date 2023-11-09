@@ -7,7 +7,6 @@ function App() {
   return (
     <>
     <RouterProvider router={router} />
-     <h1 className='text-secondary'>Kamrul Islam</h1>
     </>
   )
 }

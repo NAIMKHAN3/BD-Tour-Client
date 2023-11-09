@@ -15,7 +15,7 @@ const Signin = () => {
 
     }
     return (
-        <div className='w-1/3 mx-auto my-10 border border-secondary p-3 py-5'>
+        <div className='w-full md:w-1/3 mx-auto my-10 border border-secondary p-3 py-5'>
              <h1 className='text-center text-xl font-semibold text-secondary'>Sign in</h1>
             <form onSubmit={handleSubmit(onSubmit)} resol>
 
