@@ -6,12 +6,16 @@ import Paragraph from './Paragraph';
 import Heading from './Heading';
 
 import Image from './Image';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeUser } from '../redux/features/auth/authSlice';
 
 const MobileNavbar = () => {
-const email = null
-
-    const handleLogout = () => {
-    }
+    const dispatch = useDispatch();
+    const {email} = useSelector(state => state.user)
+        const handleLogout = () => {
+            dispatch(removeUser())
+            toast.success("Sign out success")
+        }
     const [isOpen, setIsOpen] = useState(false);
 
 
@@ -20,7 +24,7 @@ const email = null
     };
     return (
         <>
-            <div className="lg:hidden flex justify-between mx-5 py-2 transition duration-700">
+            <div className="lg:hidden flex justify-between  py-2 transition duration-700 bg-[#f2f5fc]">
                 <div className="flex justify-center items-center">
                     <Link to='/'>
                         <Heading className="text-lg font-semibold flex items-center">
@@ -52,12 +56,12 @@ const email = null
                     </p>
                     <div className='text-white'>
                         <Link to='/home'><Paragraph className={" mt-5"}> <span className='hover:bg-white font-semibold hover:text-secondary duration-300 cursor-pointer px-5 py-2 rounded-md'  onClick={toggleIsOpen}>Home</span> </Paragraph></Link>
-                        <Link to='/books'><Paragraph className={"mt-5"}><span className='hover:bg-white font-semibold hover:text-secondary duration-300 cursor-pointer px-5 py-2 rounded-md'  onClick={toggleIsOpen}>Books</span> </Paragraph></Link>
+                        
+                        <Link to='/about'><Paragraph className={"mt-5"}><span className='hover:bg-white font-semibold hover:text-secondary duration-300 cursor-pointer px-5 py-2 rounded-md'  onClick={toggleIsOpen}>About</span> </Paragraph></Link>
                         {
                             email ? <>
-                                <Link to='/add-new'><Paragraph className={"mt-5"}><span className='hover:bg-white font-semibold hover:text-secondary duration-300 cursor-pointer px-5 py-2 rounded-md'  onClick={toggleIsOpen}>Add New</span></Paragraph></Link>
-                                <Link to='/wishlist'><Paragraph className={"mt-5"}><span className='hover:bg-white font-semibold hover:text-secondary duration-300 cursor-pointer px-5 py-2 rounded-md'  onClick={toggleIsOpen}>Wishlist</span></Paragraph></Link>
-                                <button onClick={handleLogout} className={"mr-5 font-semibold hover:bg-secondary mt-5 border border-secondary duration-300 text-secondary bg-white hover:text-white px-4 py-2 rounded-md"}>Log out</button>
+                                <Link to='/my-booking'><Paragraph className={"mt-5"}><span className='hover:bg-white font-semibold hover:text-secondary duration-300 cursor-pointer px-5 py-2 rounded-md'  onClick={toggleIsOpen}>My booking</span> </Paragraph></Link>
+                                <button onClick={handleLogout} className={"mr-5 font-semibold hover:bg-secondary mt-5 border border-secondary duration-300 text-secondary bg-white hover:text-white px-4 py-2 rounded-md"}>Signout</button>
                             </>
                                 : <>
                                     <Link to='/signin'><Paragraph className={"mt-5"}><span className='hover:bg-white font-semibold hover:text-secondary duration-300 cursor-pointer px-5 py-2 rounded-md'  onClick={toggleIsOpen}>Sign In</span></Paragraph></Link>

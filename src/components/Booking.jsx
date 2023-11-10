@@ -45,7 +45,7 @@ const Booking = () => {
 
     }
     return (
-        <div className='max-w-6xl mx-auto'>
+        <div className='max-w-6xl mx-auto' id='booking'>
             <h1 className='text-2xl text-secondary mt-10 font-semibold ml-4'>Booking</h1>
             <div className='w-full flex-col md:flex-row flex mx-auto mt-5 gap-3 p-3 py-5'>
                 <div className='w-full md:w-1/2'>
