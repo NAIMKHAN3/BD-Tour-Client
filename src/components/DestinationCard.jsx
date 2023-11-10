@@ -1,5 +1,6 @@
 import React from 'react';
 import {BsArrowRightCircle} from 'react-icons/bs'
+import { Link } from 'react-router-dom';
 
 const DestinationCard = ({destination}) => {
     return (
@@ -8,7 +9,7 @@ const DestinationCard = ({destination}) => {
 
            <div className='flex justify-between items-center my-5'>
            <h1 className='font-semibold'>{destination.name}</h1>
-            <BsArrowRightCircle className='text-secondary hover:bg-secondary hover:text-white rounded-full cursor-pointer duration-300' size={24} />
+           <Link to={`/destination-details/${destination._id}`}> <BsArrowRightCircle className='text-secondary hover:bg-secondary hover:text-white rounded-full cursor-pointer duration-300' size={24} /></Link>
            </div>
         </div>
     );
