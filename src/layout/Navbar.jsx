@@ -6,10 +6,11 @@ import Paragraph from "../components/Paragraph";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import MobileNavbar from "../components/MobileNavbar";
+import { useSelector } from "react-redux";
 
 
 const Navbar = () => {
-const email = null
+const {email} = useSelector(state => state.user)
     const handleLogout = () => {
         
     }
@@ -45,15 +46,19 @@ const email = null
                     <Image className={"w-36"} src={"https://i.ibb.co/tCp8p57/Capture-removebg-preview.png"} />
                     <div className='flex items-center'>
                         <Link to='/home'><Paragraph className={"mr-5 font-semibold hover:text-[#0874c4] duration-300 cursor-pointer"}>Home</Paragraph></Link>
-                        <Link to='/my-booking'><Paragraph className={"mr-5 font-semibold hover:text-[#0874c4] duration-300 cursor-pointer"}>My booking</Paragraph></Link>
+                        
+                        <Link to='/about'><Paragraph className={"mr-5 font-semibold hover:text-[#0874c4] duration-300 cursor-pointer"}>About</Paragraph></Link>
                         {
                             email ? <>
-                                <Link to='/add-new'><Paragraph className={"mr-5 font-semibold hover:text-[#0874c4] duration-300 cursor-pointer"}>Add New</Paragraph></Link>
-                                <Button onClick={handleLogout} className={"mr-5"}>Log out</Button>
+                                <Link to='/my-booking'><Paragraph className={"mr-5 font-semibold hover:text-[#0874c4] duration-300 cursor-pointer"}>My booking</Paragraph></Link>
+                                <div>
+                                    <img className="h-12 w-12 rounded-full" src="https://i.ibb.co/8zn1tdN/download.jpg" alt="" />
+                                </div>
                             </>
                                 : <>
                                     <Link to='/signin'><Paragraph className={"mr-5 font-semibold hover:text-[#0874c4] duration-300 cursor-pointer"}>Sign In</Paragraph></Link>
                                     <Link to='/signup'><Paragraph className={"mr-5 font-semibold hover:text-[#0874c4] duration-300 cursor-pointer"}>Sign Up</Paragraph></Link>
+                                    <Button onClick={handleLogout} className={"mr-5"}>Log out</Button>
                                 </>
                         }
 
