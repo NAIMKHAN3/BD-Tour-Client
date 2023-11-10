@@ -3,6 +3,7 @@ import MainLayout from "../layout/MainLayout";
 import SignUp from "../Pages/SignUp";
 import Signin from "../Pages/SignIn";
 import Home from "../Pages/Home";
+import MyBooking from "../Pages/MyBooking";
 
 export const router = createBrowserRouter([
     {
@@ -18,6 +19,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/signin', element: <Signin/>
+            },
+            {
+                path: '/my-booking', element: <MyBooking/>
             },
         ]
     },

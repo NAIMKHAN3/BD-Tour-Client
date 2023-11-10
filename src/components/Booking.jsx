@@ -34,6 +34,7 @@ const Booking = () => {
                 localStorage.removeItem('book-info')
                 bookingInfo = null
                 toast.success("Booking Success")
+                navigate('/my-booking')
             }
             reset()
         }
