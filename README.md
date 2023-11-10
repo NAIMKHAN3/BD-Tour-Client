@@ -5,8 +5,8 @@
 * Backend live link : <a href="https://bd-tour-backend.vercel.app/">https://bd-tour-backend.vercel.app</a>
 
 * Backend Code link : <a href="https://github.com/NAIMKHAN3/BD-Tour-Backend">https://github.com/NAIMKHAN3/BD-Tour-Backend</a> 
-# Technology
 
+# Technology Frontend
 -   React
 -   Tailwind CSS
 -   React-hook-form
@@ -15,6 +15,14 @@
 -   Yup validation
 -   Redux-toolkit
 -   yup validation
+
+# Technology Backend
+-   Mongoose
+-   Express Js
+-   TypeScript
+-   express-validation
+-   multer
+-   cloudinary
 
 # Getting Started
 
