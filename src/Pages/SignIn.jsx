@@ -5,13 +5,32 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import FormInput from '../components/FormInput';
 import { loginSchema } from '../schema/loginSchema';
 import Paragraph from '../components/Paragraph';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useUserLoginMutation } from '../redux/features/auth/authApi';
+import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
+import { userAdded } from '../redux/features/auth/authSlice';
 
 const Signin = () => {
-
+    const [loginUser] = useUserLoginMutation();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const { register, handleSubmit, formState: { errors }, setValue } = useForm({ resolver: yupResolver(loginSchema) });
     const onSubmit = async (data) => {
-        console.log(data)
+        try {
+            const result = await loginUser(data).unwrap();
+            if(result.status){
+                toast.success('Login Success')
+                localStorage.setItem('token', result?.accessToken)
+                localStorage.setItem('user', JSON.stringify(result?.data))
+                dispatch(userAdded(result.data))
+                navigate('/')
+            }
+        }
+        catch (err) {
+            console.log(err)
+            toast.error(err?.data?.message)
+        }
 
     }
     return (
